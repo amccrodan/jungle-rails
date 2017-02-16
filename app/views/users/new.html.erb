@@ -1,4 +1,4 @@
-<section class="admin-products-new">
+<section class="users-new">
 
   <header class="page-header">
     <h1>Create New Account</h1>
@@ -8,11 +8,11 @@
     <div class="col-sm-6 col-sm-offset-1">
       <%= form_for @user, url: '/users' do |form| %>
 
-        <% if form.object.errors.any? %>
+        <% if @user.errors.any? %>
           <div class="alert alert-danger">
             <strong>The following errors prevented saving:</strong>
             <ul>
-              <% form.object.errors.full_messages.each do |error| %>
+              <% @user.errors.full_messages.each do |error| %>
                 <li><%= error %></li>
               <% end %>
             </ul>
