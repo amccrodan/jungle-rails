@@ -1,6 +1,12 @@
-Thank you for your order!
+Thank you for your order, <%= @order.email %>!
 ===============================================
+Your order details are as follows:
 
-You have successfully signed up to example.com
+<% @order_total = 0 %>
+<% @order.line_items.each do |line_item| %>
+  <%= render 'item', line_item: line_item %>
+<% end %>
 
-Thanks for joining and have a great day!
+TOTAL: $<%= @order_total %>
+
+Thank you and have a great day!
