@@ -132,5 +132,41 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+puts "Re-creating User ..."
+
+User.destroy_all
+
+User.create!({
+  first_name: 'Andrew',
+  last_name: 'McCrodan',
+  email: 'andrewmccrodan@gmail.com',
+  password: 'dingo'
+})
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+prod1 = Product.find(1)
+prod2 = Product.find(2)
+prod3 = Product.find(3)
+
+prod1.reviews.create!({
+  user: User.first,
+  description: 'This is great!',
+  rating: 5
+})
+
+prod2.reviews.create!({
+  user: User.first,
+  description: 'This is ok.',
+  rating: 3
+})
+
+prod3.reviews.create!({
+  user: User.first,
+  description: 'This is awful.',
+  rating: 1
+})
 
 puts "DONE!"
