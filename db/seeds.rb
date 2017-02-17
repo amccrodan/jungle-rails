@@ -157,6 +157,12 @@ prod1.reviews.create!({
   rating: 5
 })
 
+prod1.reviews.create!({
+  user: User.first,
+  description: 'This is less great than before.',
+  rating: 4
+})
+
 prod2.reviews.create!({
   user: User.first,
   description: 'This is ok.',
