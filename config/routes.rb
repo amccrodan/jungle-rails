@@ -16,8 +16,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  get '/register' => 'users#new'
-  resources :users, only: [:create]
+  # get '/register' => 'users#new'
+  resources :users, path: 'register', path_names: { new: '' }, only: [:new, :create]
 
   namespace :admin do
     root to: 'dashboard#show'
