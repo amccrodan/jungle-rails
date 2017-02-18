@@ -30,7 +30,7 @@
       <div class="row">
         <div class="col-sm-12">
           <h4>Leave a review?</h4>
-          <%= form_for [@product, @new_review] do |form| %>
+          <%= form_for [@product, @review] do |form| %>
             <div class="form-group">
               <%= form.label :description %>
               <%= form.text_area :description, class: 'form-control' %>
@@ -70,6 +70,8 @@
             <tr>
               <th>Reviews</th>
             </tr>
+            <tr>
+              <td>Overall rating: <strong><%= @overall_rating %></strong></td>
           </thead>
           <tbody>
             <%= render @reviews %>
