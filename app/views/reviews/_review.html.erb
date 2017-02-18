@@ -1,7 +1,10 @@
 <tr>
   <td>
-    <h5><%= review.user.first_name %> <%= review.user.last_name %></h4>
+    <h5><%= review.user.first_name %> <%= review.user.last_name %></h5>
     <p><%= review.description %></p>
     <p><%= review.rating %> / 5</p>
+    <% if current_user.id == review.user.id %>
+    <p><%= link_to 'Destroy', [@product, review], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
   </td>
 </tr>
