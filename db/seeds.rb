@@ -143,6 +143,13 @@ User.create!({
   password: 'dingo'
 })
 
+User.create!({
+  first_name: 'Dingo',
+  last_name: 'Lad',
+  email: 'dingo@gmail.com',
+  password: 'dingo'
+})
+
 puts "Re-creating Reviews ..."
 
 Review.destroy_all
@@ -158,7 +165,7 @@ prod1.reviews.create!({
 })
 
 prod1.reviews.create!({
-  user: User.first,
+  user: User.last,
   description: 'This is less great than before.',
   rating: 4
 })
