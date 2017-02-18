@@ -4,7 +4,7 @@
     <p><%= review.description %></p>
     <p><%= review.rating %> / 5</p>
     <% if current_user.id == review.user.id %>
-    <p><%= link_to 'Destroy', [@product, review], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <p><%= link_to fa_icon('trash'), [@product, review], method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
   </td>
 </tr>
