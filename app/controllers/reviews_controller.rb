@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
       redirect_to :back
     else
       @reviews = @product.reviews.order(created_at: :desc)
-      @new_review = @review
+      @overall_rating = @reviews.average(:rating)
       render 'products/show', id: params['product_id']
     end
   end
