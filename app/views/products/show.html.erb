@@ -69,23 +69,25 @@
       </div>
     <% end %>
 
-    <div class="row">
-      <div class="col-sm-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th colspan="2">Reviews</th>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Overall rating: <strong><%= @overall_rating %></strong></td>
-          </thead>
-          <tbody>
-            <%= render @reviews %>
-          </tbody>
-        </table>
+    <% if @reviews.count > 0 %>
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table">
+            <thead>
+              <tr>
+                <th colspan="2">Reviews</th>
+              </tr>
+              <tr>
+                <td></td>
+                <td>Overall rating: <strong><%= @overall_rating %></strong></td>
+            </thead>
+            <tbody>
+              <%= render @reviews %>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    <% end %>
 
   </article>
 
