@@ -25,7 +25,7 @@ RSpec.describe Product, type: :model do
         price: 64.99
       })
 
-      expect(@product.id).to be_nil
+      expect(@product.errors.full_messages).to include("Name can't be blank")
     end
 
     it 'should not save successfully without a price' do
@@ -37,7 +37,7 @@ RSpec.describe Product, type: :model do
         price: nil
       })
 
-      expect(@product.id).to be_nil
+      expect(@product.errors.full_messages).to include("Price can't be blank")
     end
 
     it 'should not save successfully without a quantity' do
@@ -49,22 +49,10 @@ RSpec.describe Product, type: :model do
         price: 64.99
       })
 
-      expect(@product.id).to be_nil
+      expect(@product.errors.full_messages).to include("Quantity can't be blank")
     end
 
     it 'should not save successfully without a category' do
-      @product = Product.create({
-        name:  'Test Product Name',
-        description: Faker::Hipster.paragraph(4),
-        image: File.open(Rails.root.join('db', 'seed_assets', 'apparel1.jpg')),
-        quantity: 10,
-        price: 64.99
-      })
-
-      expect(@product.id).to be_nil
-    end
-
-    it 'has an error in errors.full_messages when it fails' do
       @product = Product.create({
         name:  'Test Product Name',
         description: Faker::Hipster.paragraph(4),
