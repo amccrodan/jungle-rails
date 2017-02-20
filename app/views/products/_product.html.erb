@@ -1,4 +1,6 @@
 <article class="product">
+  <% @overall_rating = product.reviews.average(:rating) %>
+
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
@@ -7,6 +9,11 @@
   </header>
   <p class="description">
     <%= product.description %>
+    <% if product.reviews.count > 0 %>
+      <p><strong><%= @overall_rating %> / 5 </strong></p>
+    <% else %>
+      <p><em>No Ratings</em></p>
+    <% end %>
   </p>
   <footer class="actions">
     <%= link_to add_item_cart_path(product_id: product.id), class: 'btn btn-primary', method: :put do %>
