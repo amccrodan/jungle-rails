@@ -69,7 +69,7 @@
       </div>
     <% end %>
 
-    <% if @reviews.count > 0 %>
+    <% if @product.has_reviews? %>
       <div class="row">
         <div class="col-sm-12">
           <table class="table">
@@ -79,7 +79,7 @@
               </tr>
               <tr>
                 <td></td>
-                <td>Overall rating: <strong><%= @overall_rating %></strong></td>
+                <td>Overall rating: <strong><%= @product.overall_rating %></strong></td>
             </thead>
             <tbody>
               <%= render @reviews %>
