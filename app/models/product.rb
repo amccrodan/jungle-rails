@@ -15,4 +15,16 @@ class Product < ActiveRecord::Base
     self.quantity == 0
   end
 
+  def overall_rating
+    reviews.average(:rating)
+  end
+
+  def num_reviews
+    reviews.size
+  end
+
+  def has_reviews?
+    num_reviews > 0
+  end
+
 end

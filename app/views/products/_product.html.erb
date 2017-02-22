@@ -1,7 +1,4 @@
 <article class="product">
-  <% @overall_rating = product.reviews.average(:rating) %>
-  <% @num_reviews = product.reviews.count %>
-
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
@@ -10,10 +7,10 @@
   </header>
   <p class="description">
     <%= product.description %>
-    <% if @num_reviews > 0 %>
+    <% if product.has_reviews? %>
       <p>
-        <strong><%= @overall_rating %> / 5</strong>
-        - <em><%= pluralize(@num_reviews, 'review') %></em>
+        <strong><%= product.overall_rating %> / 5</strong>
+        - <em><%= pluralize(product.num_reviews, 'review') %></em>
       </p>
     <% else %>
       <p><em>No Ratings</em></p>

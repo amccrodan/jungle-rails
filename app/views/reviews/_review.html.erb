@@ -5,7 +5,7 @@
     <dd><%= review.description %></dd>
     </dl>
     <td><%= review.rating %> / 5
-    <% if current_user.id == review.user.id %>
+    <% if current_user.try(:id) == review.user.id %>
     <%= link_to fa_icon('trash'), [@product, review], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger pull-right' %></td>
     <% end %>
   </td>
