@@ -19,7 +19,6 @@
         </tr>
       </thead>
       <tbody>
-        <% @order_total = 0 %>
         <% @order.line_items.each do |line_item| %>
           <%= render 'item', line_item: line_item %>
         <% end %>
@@ -30,7 +29,7 @@
             TOTAL:
           </th>
           <th>
-            <%= @order_total %>
+            <%= @order.total %>
           </th>
         </tr>
         <tr>

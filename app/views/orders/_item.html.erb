@@ -2,7 +2,6 @@
 
 <% if product = Product.find_by(id: line_item.product_id) %>
   <% item_total = product.price * quantity %>
-  <% @order_total += item_total %>
 
   <tr>
     <td>
